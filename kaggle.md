@@ -14,6 +14,9 @@ classificationのとこらからモデルを決める
 【アルゴリズムのフローチャートを参考に↓】
 ![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/2d575e66-43d5-4540-a748-079d618651ab)
 
+データ量的は約60万ものデータが使用されている
+⇒SGD Classfire もしうまくいかなかったらkernel aproximinate
+
 # 工程
 ## 1.前処理・特徴量エンジニアリング
 

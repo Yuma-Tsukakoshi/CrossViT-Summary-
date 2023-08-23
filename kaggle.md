@@ -9,6 +9,10 @@ kaggleからコンペを1つ選び、submitしてください。
 機械学習の実装力
 
 # 方針
+## ベースカーネル
+https://www.kaggle.com/code/kyakovlev/ieee-gb-2-make-amount-useful-again/notebook?scriptVersionId=19402773  
+
+
 詐欺であるか否かを判定するのでクラス分類で考える
 classificationのとこらからモデルを決める
 【アルゴリズムのフローチャートを参考に↓】

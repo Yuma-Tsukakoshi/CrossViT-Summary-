@@ -9,9 +9,10 @@ kaggleからコンペを1つ選び、submitしてください。
 機械学習の実装力
 
 # 方針
-## ベースカーネル
+## ベースカーネル　lightbgmを使っているカーネルを中心に手法を勉強
 https://www.kaggle.com/code/kyakovlev/ieee-gb-2-make-amount-useful-again/notebook?scriptVersionId=19402773  
-
+https://www.kaggle.com/code/nroman/lgb-single-model-lb-0-9419/notebook
+https://www.kaggle.com/code/timon88/lgbm-baseline-small-fe-no-blend/notebook
 
 詐欺であるか否かを判定するのでクラス分類で考える
 classificationのとこらからモデルを決める
@@ -24,10 +25,14 @@ classificationのとこらからモデルを決める
 
 # 工程
 ## 【ライブラリのインポート】
+numpy:行列や配列を扱う  
+pandas: データフレームを扱う  
+gc: garbagecollectionをすることでメモリリークを防ぐ⇒今回データが膨大であるためメモリの解法を行うため使用
+datetime: 今回扱う日時に関するデータは、投稿からの経過秒数が格納されている
 
 ## 【 データの読み込み】
 
-## 【 データの読み込み】
+## 【 特徴量の準備】
 
 ## 【 データの読み込み】
 

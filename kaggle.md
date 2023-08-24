@@ -20,6 +20,7 @@ classificationのとこらからモデルを決める
 
 データ量的は約60万ものデータが使用されている
 ⇒SGD Classfire もしうまくいかなかったらkernel aproximinate
+⇒lightGBMによって高速に処理する方針で
 
 # 工程
 ## 1.前処理・特徴量エンジニアリング

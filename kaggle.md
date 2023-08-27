@@ -25,15 +25,15 @@ classificationのとこらからモデルを決める
 
 # 工程
 ## 【ライブラリのインポート】
-numpy:行列や配列を扱う  
-pandas: データフレームを扱う  
-gc: garbagecollectionをすることでメモリリークを防ぐ⇒今回データが膨大であるためメモリの解法を行うため使用
-datetime: 今回扱う日時に関するデータは、投稿からの経過秒数が格納されているため実際の日時ではないため日時変換で扱う
+- numpy:行列や配列を扱う  
+- pandas: データフレームを扱う  
+- gc: garbagecollectionをすることでメモリリークを防ぐ⇒今回データが膨大であるためメモリの解法を行うため使用
+- datetime: 今回扱う日時に関するデータは、投稿からの経過秒数が格納されているため実際の日時ではないため日時変換で扱う
 
-metrics = 
-train_test_split = テストと訓練の分割
-KFold = 
-LabelEncoder =
+- metrics = 
+- train_test_split = テストと訓練の分割
+- KFold = 
+- LabelEncoder =
 
 ## 変数の設定
 TARGET → 今回のターゲットカラムを設定

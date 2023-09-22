@@ -3,9 +3,22 @@
 - [ ] 後処理の実装(post processing, calibrationなど)
 
 ## 1 仮説の検証(仮説ごとにデータを可視化して正当性を理解する)
+### 1-1 特定の時間帯や曜日に集中して発生する可能性が高い
+
+
+### 1-2 購入者と受取人の一致を確かめる
+
+
+### 1-3 やりとりに特定のデバイスを用いている
+
 
 
 ## 2 後処理の実装(post processing, calibrationなど)
+Calibrationの方法には、Sigmoid / Platt ScaleやIsotonic Regressionなどがある。  
+Sigmoid / Platt Scaleは、モデルの出力値をシグモイド関数にフィットさせて調整する方法です。　　
+Isotonic Regressionは、モデルの出力値を単調増加関数にフィットさせて調整する。
+LightGBMは、binary log loss classification (or logistic regression) を使っているので、Calibrationは不要だと考えた。
+
 post  processingによって後処理を行う  
 予測値の分布を正規化する。  
 予測値の平均と標準偏差を計算し、予測値を標準正規分布に変換する。  

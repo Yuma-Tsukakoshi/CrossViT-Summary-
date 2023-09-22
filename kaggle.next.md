@@ -51,10 +51,73 @@ plt.show()
 - D9とisFraudには強い負の相関が見られます。これは、D9が欠損値である場合に詐欺行為が多く発生することを示しています。
 
 ### 1-2 購入者と受取人の一致を確かめる
+この仮説を立てたコードを可視化するためのコードを教えてくださいね。このコードは、P_emaildomainとR_emaildomainという特徴量を使って、購入者と受取人のメールアドレスの一致や欠損値の有無を調べています。また、email_checkという新しい特徴量を作成して、メールアドレスが一致する場合は1、不一致や欠損値の場合は0としています。
 
+このコードの仮説は、メールアドレスの一致や欠損値によって、目的変数であるisFraudの値が変わるというものです。つまり、詐欺行為の発生は、購入者と受取人の関係や信頼性によって影響されるということです。
+
+この仮説を可視化するためのコードは、以下のようになります。
+
+# 必要なライブラリをインポートする
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# P_emaildomainとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6))
+plt.title('P_emaildomain vs isFraud')
+sns.countplot(x='P_emaildomain', hue='isFraud', data=train_df)
+plt.xlabel('P_emaildomain')
+plt.ylabel('Count')
+plt.xticks(rotation=90)
+plt.show()
+
+# R_emaildomainとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6))
+plt.title('R_emaildomain vs isFraud')
+sns.countplot(x='R_emaildomain', hue='isFraud', data=train_df)
+plt.xlabel('R_emaildomain')
+plt.ylabel('Count')
+plt.xticks(rotation=90)
+plt.show()
+
+# email_checkとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6))
+plt.title('email_check vs isFraud')
+sns.countplot(x='email_check', hue='isFraud', data=train_df)
+plt.xlabel('email_check')
+plt.ylabel('Count')
+plt.show()
+
+これらのグラフから、以下のようなことが分かります。
+
+- P_emaildomainとisFraudには明確な関係は見られませんが、gmail.comやyahoo.comなどの一般的なメールアドレスが多く使われていることがわかります。また、欠損値が多いこともわかります。
+- R_emaildomainとisFraudには強い正の相関が見られます。これは、受取人のメールアドレスがgmail.comやhotmail.comなどの一般的なメールアドレスである場合に詐欺行為が多く発生することを示しています。また、欠損値が非常に多いこともわかります。
+- email_checkとisFraudには強い負の相関が見られます。これは、購入者と受取人のメールアドレスが一致する場合に詐欺行為が少なく発生することを示しています。また、メールアドレスが一致するケースは非常に少ないこともわかります。
 
 ### 1-3 やりとりに特定のデバイスを用いている
+この仮説を立てたコードを可視化するためのコードを教えてくださいね。このコードは、train_identityとtest_identityというデータフレームに対して、DeviceInfo, id_30, id_31という特徴量を使って、デバイスやブラウザの種類やバージョンを抽出しています。また、新しい特徴量として、DeviceInfo_device, DeviceInfo_version, id_30_device, id_30_version, id_31_deviceという列を作成しています。
 
+このコードの仮説は、デバイスやブラウザの種類やバージョンによって、目的変数であるisFraudの値が変わるというものです。つまり、詐欺行為の発生は、ユーザーが使用する機器やソフトウェアによって影響されるということです。
+
+必要なライブラリをインポートする
+import matplotlib.pyplot as plt import seaborn as sns
+
+train_identityとtrain_transactionを結合する
+train_df = train_identity.merge(train_transaction, on=‘TransactionID’, how=‘left’)
+
+・DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6)) plt.title(‘DeviceInfo_device vs isFraud’) sns.countplot(x=‘DeviceInfo_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘DeviceInfo_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
+
+・id_30_deviceとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6)) plt.title(‘id_30_device vs isFraud’) sns.countplot(x=‘id_30_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘id_30_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
+
+・id_31_deviceとisFraudの関係をカウントプロットでプロットする
+plt.figure(figsize=(12,6)) plt.title(‘id_31_device vs isFraud’) sns.countplot(x=‘id_31_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘id_31_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
+
+これらのグラフから、以下のようなことが分かります。
+
+DeviceInfo_deviceとisFraudには明確な関係は見られませんが、unknown_deviceやwindowsなどの一般的なデバイスが多く使われていることがわかります。
+id_30_deviceとisFraudには強い正の相関が見られます。これは、OSの種類によって詐欺行為が多く発生することを示しています。例えば、androidやiosなどのモバイルOSで詐欺行為が多く発生しています。
+id_31_deviceとisFraudには強い正の相関が見られます。これは、ブラウザの種類によって詐欺行為が多く発生することを示しています。例えば、chromeやsafariなどの一般的なブラウザで詐欺行為が多く発生しています。
 
 
 ## 2 後処理の実装(post processing, calibrationなど)

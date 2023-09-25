@@ -11,18 +11,23 @@
 この仮説を可視化するためのコードは、以下のようになります。
 
 # 必要なライブラリをインポートする
-import matplotlib.pyplot as plt
+```
 import seaborn as sns
+import matplotlib.pyplot as plt
+```
 
 ・ TransactionDTとisFraudの関係を折れ線グラフでプロットする
+```
 plt.figure(figsize=(12,6))
 plt.title('TransactionDT vs isFraud')
 sns.lineplot(x='TransactionDT', y='isFraud', data=train_df)
 plt.xlabel('TransactionDT')
 plt.ylabel('isFraud')
 plt.show()
+```
 
 ・ DT_M, DT_W, DT_D, DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
+```
 cols = ['DT_M', 'DT_W', 'DT_D', 'DT_hour', 'DT_day_week', 'DT_day']
 fig, axes = plt.subplots(3, 2, figsize=(12,18))
 fig.suptitle('Date and Time Features vs isFraud')
@@ -32,14 +37,17 @@ for i, col in enumerate(cols):
     ax.set_xlabel(col)
     ax.set_ylabel('isFraud')
 plt.show()
+```
 
 ・ D9とisFraudの関係を棒グラフでプロットする
+```
 plt.figure(figsize=(12,6))
 plt.title('D9 vs isFraud')
 sns.barplot(x='D9', y='isFraud', data=train_df)
 plt.xlabel('D9')
 plt.ylabel('isFraud')
 plt.show()
+```
 
 これらのグラフから、以下のようなことが分かります。
 

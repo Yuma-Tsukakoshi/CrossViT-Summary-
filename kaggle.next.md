@@ -10,13 +10,13 @@
 
 この仮説を可視化するためのコードは、以下のようになります。
 
-# 必要なライブラリをインポートする
+必要なライブラリをインポートする
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
-・ TransactionDTとisFraudの関係を折れ線グラフでプロットする
+TransactionDTとisFraudの関係を折れ線グラフでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title('TransactionDT vs isFraud')
@@ -26,7 +26,7 @@ plt.ylabel('isFraud')
 plt.show()
 ```
 
-・ DT_M, DT_W, DT_D, DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
+DT_M, DT_W, DT_D, DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
 ```python
 cols = ['DT_M', 'DT_W', 'DT_D', 'DT_hour', 'DT_day_week', 'DT_day']
 fig, axes = plt.subplots(3, 2, figsize=(12,18))
@@ -39,7 +39,7 @@ for i, col in enumerate(cols):
 plt.show()
 ```
 
-・ D9とisFraudの関係を棒グラフでプロットする
+D9とisFraudの関係を棒グラフでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title('D9 vs isFraud')
@@ -65,13 +65,13 @@ plt.show()
 
 この仮説を可視化するためのコードは、以下のようになります。
 
-# 必要なライブラリをインポートする
+必要なライブラリをインポートする
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-# P_emaildomainとisFraudの関係をカウントプロットでプロットする
+P_emaildomainとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title('P_emaildomain vs isFraud')
@@ -82,7 +82,7 @@ plt.xticks(rotation=90)
 plt.show()
 ```
 
-# R_emaildomainとisFraudの関係をカウントプロットでプロットする
+R_emaildomainとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title('R_emaildomain vs isFraud')
@@ -93,7 +93,7 @@ plt.xticks(rotation=90)
 plt.show()
 ```
 
-# email_checkとisFraudの関係をカウントプロットでプロットする
+email_checkとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title('email_check vs isFraud')
@@ -124,7 +124,8 @@ train_identityとtrain_transactionを結合する
 ```python
 train_df = train_identity.merge(train_transaction, on=‘TransactionID’, how=‘left’)
 ```
-・DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする
+
+DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title(‘DeviceInfo_device vs isFraud’)
@@ -134,7 +135,7 @@ plt.ylabel(‘Count’)
 plt.xticks(rotation=90)
 plt.show()
 ```
-・id_30_deviceとisFraudの関係をカウントプロットでプロットする
+id_30_deviceとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title(‘id_30_device vs isFraud’)
@@ -144,7 +145,7 @@ plt.ylabel(‘Count’)
 plt.xticks(rotation=90)
 plt.show()
 ```
-・id_31_deviceとisFraudの関係をカウントプロットでプロットする
+id_31_deviceとisFraudの関係をカウントプロットでプロットする
 ```python
 plt.figure(figsize=(12,6))
 plt.title(‘id_31_device vs isFraud’)

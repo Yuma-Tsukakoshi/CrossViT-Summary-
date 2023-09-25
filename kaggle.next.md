@@ -66,10 +66,13 @@ plt.show()
 この仮説を可視化するためのコードは、以下のようになります。
 
 # 必要なライブラリをインポートする
+```
 import matplotlib.pyplot as plt
 import seaborn as sns
+```
 
 # P_emaildomainとisFraudの関係をカウントプロットでプロットする
+```
 plt.figure(figsize=(12,6))
 plt.title('P_emaildomain vs isFraud')
 sns.countplot(x='P_emaildomain', hue='isFraud', data=train_df)
@@ -77,8 +80,10 @@ plt.xlabel('P_emaildomain')
 plt.ylabel('Count')
 plt.xticks(rotation=90)
 plt.show()
+```
 
 # R_emaildomainとisFraudの関係をカウントプロットでプロットする
+```
 plt.figure(figsize=(12,6))
 plt.title('R_emaildomain vs isFraud')
 sns.countplot(x='R_emaildomain', hue='isFraud', data=train_df)
@@ -86,14 +91,17 @@ plt.xlabel('R_emaildomain')
 plt.ylabel('Count')
 plt.xticks(rotation=90)
 plt.show()
+```
 
 # email_checkとisFraudの関係をカウントプロットでプロットする
+```
 plt.figure(figsize=(12,6))
 plt.title('email_check vs isFraud')
 sns.countplot(x='email_check', hue='isFraud', data=train_df)
 plt.xlabel('email_check')
 plt.ylabel('Count')
 plt.show()
+```
 
 これらのグラフから、以下のようなことが分かります。
 
@@ -107,19 +115,45 @@ plt.show()
 このコードの仮説は、デバイスやブラウザの種類やバージョンによって、目的変数であるisFraudの値が変わるというものです。つまり、詐欺行為の発生は、ユーザーが使用する機器やソフトウェアによって影響されるということです。
 
 必要なライブラリをインポートする
-import matplotlib.pyplot as plt import seaborn as sns
+```
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
 
 train_identityとtrain_transactionを結合する
+```
 train_df = train_identity.merge(train_transaction, on=‘TransactionID’, how=‘left’)
-
+```
 ・DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする
-plt.figure(figsize=(12,6)) plt.title(‘DeviceInfo_device vs isFraud’) sns.countplot(x=‘DeviceInfo_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘DeviceInfo_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
-
+```
+plt.figure(figsize=(12,6))
+plt.title(‘DeviceInfo_device vs isFraud’)
+sns.countplot(x=‘DeviceInfo_device’, hue=‘isFraud’, data=train_df)
+plt.xlabel(‘DeviceInfo_device’)
+plt.ylabel(‘Count’)
+plt.xticks(rotation=90)
+plt.show()
+```
 ・id_30_deviceとisFraudの関係をカウントプロットでプロットする
-plt.figure(figsize=(12,6)) plt.title(‘id_30_device vs isFraud’) sns.countplot(x=‘id_30_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘id_30_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
-
+```
+plt.figure(figsize=(12,6))
+plt.title(‘id_30_device vs isFraud’)
+sns.countplot(x=‘id_30_device’, hue=‘isFraud’, data=train_df)
+plt.xlabel(‘id_30_device’)
+plt.ylabel(‘Count’)
+plt.xticks(rotation=90)
+plt.show()
+```
 ・id_31_deviceとisFraudの関係をカウントプロットでプロットする
-plt.figure(figsize=(12,6)) plt.title(‘id_31_device vs isFraud’) sns.countplot(x=‘id_31_device’, hue=‘isFraud’, data=train_df) plt.xlabel(‘id_31_device’) plt.ylabel(‘Count’) plt.xticks(rotation=90) plt.show()
+```
+plt.figure(figsize=(12,6))
+plt.title(‘id_31_device vs isFraud’)
+sns.countplot(x=‘id_31_device’, hue=‘isFraud’, data=train_df)
+plt.xlabel(‘id_31_device’)
+plt.ylabel(‘Count’)
+plt.xticks(rotation=90)
+plt.show()
+```
 
 これらのグラフから、以下のようなことが分かります。
 

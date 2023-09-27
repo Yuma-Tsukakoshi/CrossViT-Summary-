@@ -119,7 +119,7 @@ train_identityとtrain_transactionを結合する
 train_df = train_identity.merge(train_transaction, on=‘TransactionID’, how=‘left’)
 ```
 
-DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする
+DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする⇒データの傾向が見られないのと意図がないため没
 ```python
 plt.figure(figsize=(12,6))
 plt.title(‘DeviceInfo_device vs isFraud’)

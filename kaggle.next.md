@@ -16,17 +16,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
-TransactionDTとisFraudの関係を折れ線グラフでプロットする
-```python
-plt.figure(figsize=(12,6))
-plt.title('TransactionDT vs isFraud')
-sns.lineplot(x='TransactionDT', y='isFraud', data=train_df)
-plt.xlabel('TransactionDT')
-plt.ylabel('isFraud')
-plt.show()
-```
-
-DT_M, DT_W, DT_D, DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
+DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
 ```python
 cols = ['DT_M', 'DT_W', 'DT_D', 'DT_hour', 'DT_day_week', 'DT_day']
 fig, axes = plt.subplots(3, 2, figsize=(12,18))

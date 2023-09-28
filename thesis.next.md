@@ -24,7 +24,7 @@ $$
 \mathrm{Attention}(Q, K, V) = \mathrm{softmax}(\frac{QK^\top}{\sqrt{d_k}})V
 $$
 
-ここで、Qはqueryの行列、Kはkeyの行列、Vはvalueの行列、d_kはkeyの次元数です。softmaxは行ごとに正規化する関数です。この数式は、queryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたvalueの和を求めることを意味します。
+ここで、**Q** はqueryの行列、**K**はkeyの行列、**V**はvalueの行列、**d_k**はkeyの次元数です。softmaxは行ごとに正規化する関数です。この数式は、queryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたvalueの和を求めることを意味します。
 
 Cross Attentionでは、queryはDecoderから、memory（keyとvalue）はEncoderから与えられます。 つまり、
 
@@ -32,9 +32,10 @@ $$
 \mathrm{CrossAttention}(Q, K, V) = \mathrm{softmax}(\frac{QK^\top}{\sqrt{d_k}})V
 $$
 
-ここで、$Q$はDecoderの出力行列、$K$と$V$はEncoderの出力行列です。この数式は、Decoderの出力がEncoderの出力にどれだけ関連しているかを計算し、それに応じてEncoderの出力から情報を取り出すことを意味します。
+ここで、**Q**はDecoderの出力行列、**K**と**V**はEncoderの出力行列です。この数式は、Decoderの出力がEncoderの出力にどれだけ関連しているかを計算し、それに応じてEncoderの出力から情報を取り出すことを意味します。
 
-CATでは、Cross Attentionを拡張して、画像パッチの内部と外部にAttentionを適用します。 まず、画像パッチを単一チャンネルの特徴マップに分割し、それぞれに対してSelf-Attention（queryとmemoryが同じ場合のAttention）を適用します。これにより、画像パッチ内部の局所的な情報が捉えられます。次に、特徴マップ間でCross Attentionを適用します。これにより、画像パッチ外部の大域的な情報が捉えられます。
+CATでは、Cross Attentionを拡張して、画像パッチの内部と外部にAttentionを適用します。  
+まず、画像パッチを単一チャンネルの特徴マップに分割し、それぞれに対してSelf-Attention（queryとmemoryが同じ場合のAttention）を適用します。これにより、画像パッチ内部の局所的な情報が捉えられます。次に、特徴マップ間でCross Attentionを適用します。これにより、画像パッチ外部の大域的な情報が捉えられます。
 
 CATでは、以下のような数式でCross Attentionを表現します。
 
@@ -42,13 +43,13 @@ $$
 \mathrm{CAT}(Q, K, V) = \mathrm{softmax}(\frac{\mathrm{SA}(Q)\mathrm{SA}(K)^\top}{\sqrt{d_k}})\mathrm{SA}(V)
 $$
 
-ここで、$\mathrm{SA}$はSelf-Attentionを表す関数で、
+ここで、SAはSelf-Attentionを表す関数で、
 
 $$
 \mathrm{SA}(X) = \mathrm{softmax}(\frac{XX^\top}{\sqrt{d_x}})X
 $$
 
-です。$X$は任意の行列であり、$d_x$はその次元数です。この数式は、Self-Attentionしたqueryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたSelf-Attentionしたvalueの和を求めることを意味します。
+です。**X**は任意の行列であり、**d_x**はその次元数です。この数式は、Self-Attentionしたqueryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたSelf-Attentionしたvalueの和を求めることを意味します。
 
 EncoderとDecoderは、それぞれ12層のTransformerブロックからなります。各Transformerブロックは、Self-Attention、Cross Attention、Feed Forward Network（全結合層）からなります。各Attention層の出力次元は$D=768$です。画像パッチのサイズは$P=16\times 16$で、特徴マップのサイズは$M=4\times 4$です。つまり、各画像パッチは$M^2=16$個の特徴マップに分割されます。最終的な分類層は、Decoderの最初の位置にある特殊なトークン（[CLS]）に対応する出力を用います。
 

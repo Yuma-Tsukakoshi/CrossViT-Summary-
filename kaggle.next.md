@@ -4,8 +4,6 @@
 
 ## 1 仮説の検証(仮説ごとにデータを可視化して正当性を理解する)
 ### 1-1 特定の時間帯や曜日に集中して発生する可能性が高い
-この仮説を立てたコードを可視化するためのコードを教えてくださいね。このコードは、TransactionDTという特徴量を日時に変換し、年月日や時間などの新しい特徴量を作成しています。また、D9という特徴量に欠損値があるかどうかを示す新しい特徴量も作成しています。
-
 このコードの仮説は、日時や欠損値によって、目的変数であるisFraudの値が変わるというものです。つまり、詐欺行為の発生は、時間帯や曜日などの周期性や、D9という特徴量の有無によって影響されるということです。
 
 この仮説を可視化するためのコードは、以下のようになります。
@@ -18,7 +16,7 @@ import matplotlib.pyplot as plt
 
 DT_hour, DT_day_week, DT_dayとisFraudの関係を棒グラフでプロットする
 ```python
-cols = ['DT_M', 'DT_W', 'DT_D', 'DT_hour', 'DT_day_week', 'DT_day']
+cols = ['DT_hour', 'DT_day_week', 'DT_day']
 fig, axes = plt.subplots(3, 2, figsize=(12,18))
 fig.suptitle('Date and Time Features vs isFraud')
 for i, col in enumerate(cols):
@@ -39,7 +37,7 @@ plt.ylabel('isFraud')
 plt.show()
 ```
 
-これらのグラフから、以下のようなことが分かります。
+これらのグラフから、わかったこと。
 
 - DT_hourとisFraudには明確な周期性が見られます。これは、詐欺行為が特定の時間帯に集中していることを示しています。例えば、午前中や深夜に詐欺行為が多く発生しています。
 - DT_day_weekとisFraudには弱い負の相関が見られます。これは、詐欺行為が週末に減少する傾向があることを示しています。

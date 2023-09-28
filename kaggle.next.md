@@ -102,7 +102,7 @@ plt.show()
 仮説は間違っていたと判断できる。
 
 ### 1-3 やりとりに特定のデバイスを用いている
-この仮説を立てたコードを可視化するためのコードを教えてくださいね。このコードは、train_identityとtest_identityというデータフレームに対して、DeviceInfo, id_30, id_31という特徴量を使って、デバイスやブラウザの種類やバージョンを抽出しています。また、新しい特徴量として、DeviceInfo_device, DeviceInfo_version, id_30_device, id_30_version, id_31_deviceという列を作成しています。
+train_identityとtest_identityというデータフレームに対して、DeviceInfo, id_30, id_31という特徴量を使って、デバイスやブラウザの種類やバージョンを抽出しています。また、新しい特徴量として、DeviceInfo_device, DeviceInfo_version, id_30_device, id_30_version, id_31_deviceという列を作成しています。
 
 このコードの仮説は、デバイスやブラウザの種類やバージョンによって、目的変数であるisFraudの値が変わるというものです。つまり、詐欺行為の発生は、ユーザーが使用する機器やソフトウェアによって影響されるということです。
 
@@ -110,22 +110,6 @@ plt.show()
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
-```
-
-train_identityとtrain_transactionを結合する
-```python
-train_df = train_identity.merge(train_transaction, on=‘TransactionID’, how=‘left’)
-```
-
-DeviceInfo_deviceとisFraudの関係をカウントプロットでプロットする⇒データの傾向が見られないのと意図がないため没
-```python
-plt.figure(figsize=(12,6))
-plt.title(‘DeviceInfo_device vs isFraud’)
-sns.countplot(x=‘DeviceInfo_device’, hue=‘isFraud’, data=train_df)
-plt.xlabel(‘DeviceInfo_device’)
-plt.ylabel(‘Count’)
-plt.xticks(rotation=90)
-plt.show()
 ```
 id_30_deviceとisFraudの関係をカウントプロットでプロットする
 ```python
@@ -154,6 +138,7 @@ id_30_deviceとisFraudには強い正の相関が見られます。これは、O
 
 id_31_deviceとisFraudには強い正の相関が見られます。これは、ブラウザの種類によって詐欺行為が多く発生することを示しています。例えば、chromeやsafariなどの一般的なブラウザで詐欺行為が多く発生しています。
 
+総じて、特定のデバイスやなじみのある機器を用いて詐欺行為が行われている。つまり、特定のデバイスを用いて不正取引が起こるという仮説はある程度適切だったといえると思います。
 
 ## 2 後処理の実装(post processing, calibrationなど)
 Calibrationの方法には、Sigmoid / Platt ScaleやIsotonic Regressionなどがある。  

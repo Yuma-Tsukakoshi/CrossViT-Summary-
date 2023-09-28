@@ -1,4 +1,5 @@
 # 自主学習課題で行った課題　
+基本的にvscodeを見せながら解説する！
 
 ## jupyterNotebookでnumpy matplotlib pandasの実装
 

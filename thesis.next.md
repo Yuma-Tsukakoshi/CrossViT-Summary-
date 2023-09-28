@@ -24,7 +24,7 @@ $$
 \mathrm{Attention}(Q, K, V) = \mathrm{softmax}(\frac{QK^\top}{\sqrt{d_k}})V
 $$
 
-ここで、$Q$はqueryの行列、$K$はkeyの行列、$V$はvalueの行列、$d_k$はkeyの次元数です。$\mathrm{softmax}$は行ごとに正規化する関数です。この数式は、queryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたvalueの和を求めることを意味します。
+ここで、Qはqueryの行列、Kはkeyの行列、Vはvalueの行列、d_kはkeyの次元数です。softmaxは行ごとに正規化する関数です。この数式は、queryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたvalueの和を求めることを意味します。
 
 Cross Attentionでは、queryはDecoderから、memory（keyとvalue）はEncoderから与えられます。 つまり、
 

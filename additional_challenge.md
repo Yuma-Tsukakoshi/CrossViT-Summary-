@@ -2,7 +2,12 @@
 
 ## jupyterNotebookでnumpy matplotlib pandasの実装
 
-## トランスフォーマーの実装練習⇒Attention Is ALL YOU NEEDの理解のために実装
+
+
+## トランスフォーマーの実装練習
+・Attention Is ALL YOU NEEDの理解のために実装
+・ネットにあるqiitaの記事を参考に実装しました。
+・後に行うViTの論文の理解にも役立ちました。
 
 
 ## 画像処理100本ノックでopenCVについての実装

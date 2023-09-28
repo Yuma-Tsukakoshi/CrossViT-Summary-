@@ -51,7 +51,7 @@ $$
 
 です。**X**は任意の行列であり、**d_x**はその次元数です。この数式は、Self-Attentionしたqueryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたSelf-Attentionしたvalueの和を求めることを意味します。
 
-EncoderとDecoderは、それぞれ12層のTransformerブロックからなります。各Transformerブロックは、Self-Attention、Cross Attention、Feed Forward Network（全結合層）からなります。各Attention層の出力次元は$D=768$です。画像パッチのサイズは$P=16\times 16$で、特徴マップのサイズは$M=4\times 4$です。つまり、各画像パッチは$M^2=16$個の特徴マップに分割されます。最終的な分類層は、Decoderの最初の位置にある特殊なトークン（[CLS]）に対応する出力を用います。
+EncoderとDecoderは、それぞれ12層のTransformerブロックからなります。各Transformerブロックは、Self-Attention、Cross Attention、Feed Forward Network（全結合層）からなります。各Attention層の出力次元は$D=768$です。画像パッチのサイズはP=16^16で、特徴マップのサイズはM=4^4です。つまり、各画像パッチはM^2=16個の特徴マップに分割されます。最終的な分類層は、Decoderの最初の位置にある特殊なトークン（[CLS]）に対応する出力を用います。
 
 ## 線形になってより計算量が減ったとは？？  
 線形になるというのは、画像パッチの数に比例して計算量が増えるということです。調べた結果この計算量が「比例」するということがポイントだとわかりました。  

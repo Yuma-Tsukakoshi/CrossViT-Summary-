@@ -14,10 +14,11 @@
 ・説明が終わったところで前回いただいた追加課題は、  
 クロスアテンションの内部の数式の理解と次元数の把握を行うことでした。また、crossViTにおいて計算量が削減できる理由に計算量が線形になることを挙げたと思うのですがその点についてより詳しく話せたらと思います。
 
-・各層の次元数の把握 ・数式を深く理解する   　　
-Transformerは、EncoderとDecoderからなるモデルで、Encoderは入力画像をパッチに分割し、それぞれに位置エンコーディングを加えて特徴ベクトルに変換します。Decoderは、Encoderから受け取った特徴ベクトルと自身の出力を用いて、最終的な分類結果を生成します。
+・各層の次元数の把握 ・数式を深く理解する  
+Transformerは、EncoderとDecoderからなるモデルで、Encoderは入力画像をパッチに分割し、それぞれに位置エンコーディングを加えて特徴ベクトルに変換します。Decoderは、Encoderから受け取った特徴ベクトルと自身の出力を用いて、最終的な分類結果を生成するものでした。
 
-Attentionは、queryとmemory（keyとvalue）という二つの要素からなるメカニズムで、queryによってmemoryから必要な情報を選択的に取り出すことができます。 Attentionは、以下のような数式で表されます。
+Attentionは、queryとmemory（keyとvalue）という二つの要素からなりqueryによってmemoryから必要な情報を選択的に取り出すことができるものでした。   
+Attentionは、以下のような数式で表されます。  
 
 $$
 \mathrm{Attention}(Q, K, V) = \mathrm{softmax}(\frac{QK^\top}{\sqrt{d_k}})V

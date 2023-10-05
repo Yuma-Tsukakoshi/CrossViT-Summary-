@@ -1,6 +1,6 @@
 # 追加課題の論文内容
 
-.Cross-Attentionにおける内部の数式
+.Cross-Attentionにおける内部の数式の理解
 (各層の層数や次元の把握や計算処理)  
 **https://arxiv.org/pdf/2103.14899.pdf**
 

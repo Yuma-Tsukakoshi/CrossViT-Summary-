@@ -35,8 +35,12 @@ $$
 
 ここで、**Q**はDecoderの出力行列、**K**と**V**はEncoderの出力行列です。この数式は、Decoderの出力がEncoderの出力にどれだけ関連しているかを計算し、それに応じてEncoderの出力から情報を取り出すことを意味します。
 
+![image](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F290054%2Fd195ca04-5269-96ec-0942-97e72aeeeb5e.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&w=1400&fit=max&s=437602a1be129a1e37f99e4948228ce0)
+
 CATでは、Cross Attentionを拡張して、画像パッチの内部と外部にAttentionを適用します。  
-まず、画像パッチを単一チャンネルの特徴マップに分割し、それぞれに対してSelf-Attention（queryとmemoryが同じ場合のAttention）を適用します。これにより、画像パッチ内部の局所的な情報が捉えられます。次に、特徴マップ間でCross Attentionを適用します。これにより、画像パッチ外部の大域的な情報が捉えられます。
+まず、画像パッチを単一チャンネルの特徴マップに分割し、それぞれに対してSelf-Attention（queryとmemoryが同じ場合のAttention）を適用します。これにより、画像パッチ内部の局所的な情報が捉えられます。次に、特徴マップ間でCross Attentionを適用します。これにより、画像パッチ外部の大域的な情報が捉えられます。  
+
+### self-attntion
 
 CATでは、以下のような数式でCross Attentionを表現します。
 
@@ -44,18 +48,18 @@ $$
 \mathrm{CAT}(Q, K, V) = \mathrm{softmax}(\frac{\mathrm{SA}(Q)\mathrm{SA}(K)^\top}{\sqrt{d_k}})\mathrm{SA}(V)
 $$
 
-ここで、SAはSelf-Attentionを表す関数で、
+ここで、SAはSelf-Attentionを表す関数で、Self-Attentionでは文内のすべての単語の情報を使って単語をベクトル化するため、単語ベクトル内に文脈を表現することができる。
 
 $$
 \mathrm{SA}(X) = \mathrm{softmax}(\frac{XX^\top}{\sqrt{d_x}})X
 $$
 
-です。**X**は任意の行列であり、**d_x**はその次元数です。この数式は、Self-Attentionしたqueryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたSelf-Attentionしたvalueの和を求めることを意味します。
+です。**X**は任意の行列であり、**d_x**はその次元数です。この数式は、Self-Attentionしたqueryとkeyの類似度（内積）を計算し、それを正規化して重み付けしたSelf-Attentionしたvalueの和を求めることを意味します。の単語ベクトルを構成する各埋め込みベクトルのうち、どれに注目すべきかの度合いを表している。類似度が高いほど内積のあたいが大きくなる→一緒の単語は同一視されてしまうため、positionエンコーディングをすることで位置情報を付加することができる。
 
 EncoderとDecoderは、それぞれ12層のTransformerブロックからなる。各Transformerブロックは、Self-Attention、Cross Attention、Feed Forward Network（全結合層）からなります。各Attention層の出力次元は$D=768$です。画像パッチのサイズはP=16^16で、特徴マップのサイズはM=4^4です。つまり、各画像パッチはM^2=16個の特徴マップに分割されます。最終的な分類層は、Decoderの最初の位置にある特殊なトークン（[CLS]）に対応する出力を用います。
 
 ## 線形になってより計算量が減ったとは？？  
-線形になるというのは、画像パッチの数に比例して計算量が増えるということです。調べた結果この計算量が「比例」するということがポイントだとわかりました。  
+線形になるというのは、2次元の画像を画像パッチの数に比例して計算量が増えるということです。調べた結果この計算量が「比例」するということがポイントだとわかりました。  
 通常のTransformerでは、画像パッチの数がNだとすると、Self-Attentionの計算量はO(N2)です。 つまり、画像パッチの数が2倍になると、計算量は4倍になります。しかし、Cross-Attentionでは、画像パッチNを特徴マップMに分割することで、Self-Attentionの計算量をO(NM)に減らすことができます。 ここで、Mは特徴マップの数を表します。つまり、画像パッチの数が2倍になっても、計算量は2倍にしかなりません。つまり、これは計算量が線形になったことを示しています。線形になるメリットは、2乗ずつ増えるのではなくM倍で増えるのでより大きな画像やより多くのパッチを扱うことができるということです。
 
 Nをかけられている部分は、画像パッチの数を表しています。画像パッチとは、入力画像を小さな領域に分割したものです。  

@@ -6,10 +6,10 @@
 
 
 ⇒実際結果は小数点以下まで同じになった。  
-【一回目の実行】
+【一回目の実行】   
 ![スクリーンショット 2023-10-24 084311](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/12a002c7-3439-4293-8b67-5cf16fe102e2)
 
-【同一セルにおける2回目の実行】
+【同一セルにおける2回目の実行】  
 ![スクリーンショット 2023-10-24 100343](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/4354c99a-6cfd-43bd-98c5-947d05b94c2e)
 
 

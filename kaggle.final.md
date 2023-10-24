@@ -1,13 +1,11 @@
-- [ ] kaggleの学習結果が再現性を持つようにする
-⇒同じセルで2回実行して結果が変わらないことを確かめる
-⇒lightgbmの学習パラメータにおいてランダムシードを42に設定した
-![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/7bb22760-184d-4630-9064-8c8aa80ef52b)
+- [ ] kaggleの学習結果が再現性を持つようにする  
+⇒同じセルで2回実行して結果が変わらないことを確かめる  
+⇒lightgbmの学習パラメータにおいてランダムシードを42に設定した  
+![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/7bb22760-184d-4630-9064-8c8aa80ef52b)  
 
-⇒実際結果は小数点以下まで同じになった。
+⇒実際結果は小数点以下まで同じになった。  
 ![スクリーンショット 2023-10-24 084311](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/12a002c7-3439-4293-8b67-5cf16fe102e2)
 ![スクリーンショット 2023-10-24 100343](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/4354c99a-6cfd-43bd-98c5-947d05b94c2e)
-
-
 
 
 - [ ] 前処理と後処理の整理をする

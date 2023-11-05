@@ -3,7 +3,8 @@
 ![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/dc3db117-de87-40e3-b6cf-dc7503ba835b)
 ![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/03b4e857-bc63-4152-b263-329c5519f0f1)
 
-ROCとは、Receiver Operating Characteristicの略で、機械学習のモデルの評価に用いられる曲線です。ROC曲線は、横軸に偽陽性率（False Positive Rate, FPR）、縦軸に真陽性率（True Positive Rate, TPR）をとり、カットオフ値（閾値）を変化させたときのモデルの性能を表します。
+ROCとは、機械学習のモデルの評価に用いられる曲線。  
+ROC曲線は、横軸に偽陽性率（False Positive Rate, FPR）、縦軸に真陽性率（True Positive Rate, TPR）をとり、カットオフ値（閾値）を変化させたときのモデルの性能を表す。
 
 後処理には、モデルの出力を確率値から0か1の二値に変換することや、モデルの出力を正規化することなどがありますが、これらはROC曲線の形を変えません。これは、ROC曲線が偽陽性率と真陽性率の比率で表されるため、後処理によってモデルの出力がどのように変化しても、その比率は変わらないからです。
 

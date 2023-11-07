@@ -1,8 +1,5 @@
 # 面接で示すこと
 ## ROCはある種の後処理において結果が変わらない⇒どんな後処理が例として挙げられるか 
-![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/dc3db117-de87-40e3-b6cf-dc7503ba835b)
-![image](https://github.com/Yuma-Tsukakoshi/CrossViT-Summary-/assets/107422037/03b4e857-bc63-4152-b263-329c5519f0f1)
-
 ROCとは、機械学習のモデルの評価に用いられる曲線。  
 ROC曲線は、横軸に偽陽性率（False Positive Rate, FPR）、縦軸に真陽性率（True Positive Rate, TPR）をとり、カットオフ値（閾値）を変化させたときのモデルの性能を表す。
 

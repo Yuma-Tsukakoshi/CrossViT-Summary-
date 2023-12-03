@@ -40,4 +40,10 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 ## xgboostのパラメータチューニング
 - 目的関数 : binary:logisticを設定
 - 二値分類の場合は : loglossを指定し最小化するように学習
-- 
+
+## Leaderboard 参照　先
+- rank1
+
+- rank20  
+
+- rank21  

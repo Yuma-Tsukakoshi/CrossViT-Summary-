@@ -44,6 +44,5 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 ## Leaderboard 参照　先
 - rank1
 
-- rank20  
+- rank20
 
-- rank21  

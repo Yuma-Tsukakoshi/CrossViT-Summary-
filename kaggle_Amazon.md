@@ -41,6 +41,10 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 - 目的関数 : binary:logisticを設定
 - 二値分類の場合は : loglossを指定し最小化するように学習
 
+
+## 前処理の実装コツ
+
+
 ## Leaderboard 参照　先
 - rank1
   url[ rank1のLeaderBoard ](https://www.kaggle.com/competitions/amazon-employee-access-challenge/discussion/5283)

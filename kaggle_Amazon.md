@@ -64,4 +64,4 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 
 ## Codeのmost Voteでソートし6つ選択
 ・疎結合のデータ
-・
+・roll_TitleはRosle_idなのかを把握する

@@ -59,3 +59,9 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 ## Leaderboard 参照　先
 - rank1 Dmitry Efimov
   url[ rank1のLeaderBoard ](https://www.kaggle.com/competitions/amazon-employee-access-challenge/discussion/5283)
+
+
+
+## Codeのmost Voteでソートし6つ選択
+・疎結合のデータ
+・

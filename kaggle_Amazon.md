@@ -62,6 +62,6 @@ Frequency encodingでは、頻度に基づいて順序が付けられるため�
 
 
 
-## Codeのmost Voteでソートし6つ選択
+## Codeのmost Voteでソートし5つ選択
 ・疎結合のデータ
 ・roll_TitleはRole_idなのかを把握する
